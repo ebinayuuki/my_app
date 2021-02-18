@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <% unless current_page?(root_path) %>
+  <div class = "header">
+
+    <div class="header_left">
+      <h1>title</h1>
+    </div>
+
+    <div class="header_right">
+      <ul class="header-lists">
+          <li class = "header_font"><%=link_to "TOPに戻る", root_path , class:"header_under_ber"%></li>
+          <li class = "header_font"><%=link_to "クリニック登録", new_hospital_path, class:"header_under_ber"%></li>
+          <li class = "header_font"><%=link_to "新規登録", new_user_registration_path, class:"header_under_ber"%></li>
+          <li class = "header_font"><%=link_to "ログアウト", destroy_user_session_path, method: :delete , class:"header_under_ber"%></li>
+        </ul>
+    </div>
+  
+  </div>
+
+<%end%>
+
+    <%= yield %>
+    <% unless current_page?(root_path) %>
+    <footer class = "footer">
+        Copyright 2021
+    </footer>
+    <% end %>
+  </body>
+</html>

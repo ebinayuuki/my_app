@@ -1,0 +1,78 @@
+.header{
+background-color: rgb(255, 251, 251);
+width:99%;
+height:4em;
+/* text-align:right; */
+position:fixed;
+display: flex;
+z-index: 100;
+/* padding: 10px; */
+border: solid;
+border-style:solid dotted double;
+margin: 5px;
+
+}
+
+.blank{
+  padding-top: 5em;
+}
+
+.header_left{
+  width: 50%;
+  /* margin-left: 30px; */
+ 
+}
+
+.header_right{
+  
+  width: 50%;
+  padding: 20px;
+}
+.header-lists{
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+  
+}
+
+h1{
+  padding: 10px 0;
+  margin: 0;
+}
+
+.header_font {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: black;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+}
+
+.header_font:hover {
+  background: #29e903;
+  color: white;
+}
+
+.header_under_ber{
+  text-decoration: none;
+}
+
+@-ms-viewport
+{
+    width: auto;
+    initial-scale: 1;
+}
+@viewport
+{
+    width: device-width;
+    initial-scale: 1;
+}
+
+

@@ -1,0 +1,49 @@
+<div class = "yohaku"></div>
+
+<div>
+
+  <div>
+    <%= @hospital.name%>
+  </div>
+
+  <div>
+    <%= image_tag @hospital.image, class: 'message-image' if @hospital.image.attached? %>
+  </div>
+
+  <div>
+  <p>診療科目</p>
+      <%= @hospital.department %>
+      <p>郵便番号</p>
+      <%= @hospital.postal %>
+      <p>所在地</p>
+      <%= @hospital.ken_id %>
+      <p>受付時間</p>
+      <%= @hospital.time %>
+      <p>info</p>
+      <%= @hospital.info %>
+  </div>
+ 
+  <%= form_with(model: [@hospital, @reservation], local: true) do |form| %>
+        
+        <%= form.submit "SEND" %>
+        
+      <% end %>
+<%= button_to "削除", hospital_reservation_path(@hospital), method: :delete %>
+
+
+
+
+<% if user_signed_in?%>
+ <%unless User.find_by(id: current_user.id ).reservations.exists? %>
+ <div><%= button_to "予約をする", hospital_reservations_path(@hospital.id), params: {user: current_user.id, hospital: @hospital.id} %></div>
+<%else%>
+<div><%= button_to "予約解除", hospital_reservation_path(@hospital.id,), method: :delete, data: { confirm: "予約を解除してよろしいですか？"} %></div>
+ 
+<%end%>
+<% end %>
+<%= @hospital.id %>
+<%= @reservation.id %>
+
+
+</div>
+

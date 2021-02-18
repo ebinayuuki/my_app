@@ -1,0 +1,66 @@
+<div class = "yohaku"></div>
+<div class = "img">
+<div class = "index">
+
+<br><p>クリニック一覧</p><br>
+
+ <% @hospitals.each do |hospital| %>
+ 
+ <div class="kakomi-box13"><span class="title-box13"><%= hospital.name %></span>
+ <div class = "index_main">
+
+    <div>
+    <%= link_to (image_tag hospital.image.variant(resize: '300x300'), class: 'message-image' if hospital.image.attached? ), hospital_path(hospital.id)%>
+    </div>
+
+    <div>
+      <% wait = Reservation.group(:hospital_id).count(:hospital_id)%>
+      
+      <div>診察待ち人数  <%= wait[hospital.id].to_i + 0%> 名</div>
+      <div>予想待ち時間  約 <%= wait[hospital.id].to_i * 5%> 分</div>
+      <div>病院ID<%= hospital.id%></div>
+      
+       予約番号<% @reservations.each do |r| %>
+          <%= r.id%>
+       <% end %>
+
+       
+
+      <% if user_signed_in?%>
+      <%unless (User.find_by(id: current_user.id )&& Hospital.find_by(id: hospital.id )).reservations.exists? %>
+      <div><%= button_to "予約をする", hospital_reservations_path(hospital.id), params: {user: current_user.id, hospital: hospital.id} %></div>
+      <%else%>
+      <div><%= button_to "予約解除", hospital_reservation_path(hospital.id, hospital_id:hospital.id), method: :delete, data: { confirm: "予約を解除してよろしいですか？" }%>
+      
+      </div> 
+    <%end%>
+      <%end%>
+  
+
+      
+    </div>
+
+    <div>
+      <p>診療科目</p>
+      <%= hospital.department %>
+      <p>郵便番号</p>
+      <%= hospital.postal %>
+      <p>所在地</p>
+      <%= hospital.ken_id %>
+    </div>
+    <div>
+      <p>受付時間</p>
+      <%= hospital.time %>
+    </div>
+
+    </div>
+</div>
+</div>
+  
+<br><br><br>
+
+<% end %> 
+
+
+</div>
+<%= paginate @hospitals %>

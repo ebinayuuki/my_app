@@ -1,0 +1,15 @@
+<div class = "blank"></div>
+<center>
+登録フォーム
+<%= form_with model: @hospital, url: hospitals_path, local: true do |form| %>
+  <p>クリニック名</p><%= form.text_field :name %>
+  <p>画像</p><%= form.file_field :image %>
+  <p>科</p><%= form.text_field :department%>
+  <p>郵便番号</p><%= form.text_field :postal%>
+  <p>都道府県</p><%= form.text_field :ken_id%>
+  <p>情報</p><%= form.text_field :info%>
+  <p>開院時間</p><%= form.text_field :time%>
+  <br><%= form.submit "投稿" %>
+  <br>ログイン中IDは<%= current_doctor.id%>
+<% end %>
+</center>
