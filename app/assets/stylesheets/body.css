@@ -6,10 +6,10 @@
   margin: 2em auto;
   padding: 1.2em;
   width: 90%;
-  color: #555555; /* 文字色 */
+  color: #443c3c; /* 文字色 */
   background-color: #fff;
-  border: 2px solid #f09199; /* 枠線の太さ・色 */
-  box-shadow: 0 0 5px 2px #fce2c4 inset;/* 影の色 */
+  border: 3px solid #009df8; /* 枠線の太さ・色 */
+  box-shadow: 0 0 5px 5px #c4e1fc inset;/* 影の色 */
  }
  .title-box13 {
   position: absolute;
@@ -18,7 +18,7 @@
   top: -15px;
   font-weight: bold;
   background-color:  #fff; /* タイトル背景色 */
-  color: #f09199; /* タイトル文字色 */
+  color: #332a2a; /* タイトル文字色 */
  }
 
  .index_main{
