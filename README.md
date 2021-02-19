@@ -25,7 +25,7 @@ my_hospital
   * 詳細
     * devise GEMを用い、doctorアカウントとuserアカウントが登録できるよう実装する
   * ユースケース
-    *登録するアカウントはdoctor、userの２種類とする
+    * 登録するアカウントはdoctor、userの２種類とする
 
 ## 投稿機能
   * 目的
